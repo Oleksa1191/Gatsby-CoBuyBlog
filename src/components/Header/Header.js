@@ -1,22 +1,11 @@
 import React, {useState, useEffect} from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import { useStaticQuery, graphql } from 'gatsby'
 
 
 export const Header = props => {
-  const mainLogo = useStaticQuery(graphql`
-      query logoImage {
-        logo: file(absolutePath: {regex: "/logo-blue.png/"}) {
-          childImageSharp {
-            sizes(maxWidth: 100) {
-              ...GatsbyImageSharpSizes
-            }
-          }
-        }
-      }
-  `)
+  
   const isBrowser = typeof window !== `undefined`
   const [scrollPos, setscrollPos] = useState(0)
   const [show, setShow] = useState(true)
@@ -46,23 +35,23 @@ export const Header = props => {
       <StyledHeader> 
             <LogoWrapper className="site-mast-left">
                 <Link to="/"> 
-                    <Img
-                        sizes={mainLogo.logo.childImageSharp.sizes}
+                    <img
+                        src="./logo-blue.png"
                         alt="cobuy-logo"
                     />
                 </Link>
             </LogoWrapper>
             <LinksWrapper className="site-mast-right">
               <Link to="/about" className="">
-                  <div class="wrapper">
+                  <div>
                       <LinkHeader>
                           About
                       </LinkHeader>
                   </div>
               </Link>
 
-              <Link to="/cobuyer-stories" className="mr-3">
-                  <div class="wrapper">
+              <Link to="/" className="mr-3">
+                  <div>
                       <LinkHeader>
                           CoBuyer Stories
                       </LinkHeader>

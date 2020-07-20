@@ -50,14 +50,14 @@ export const Footer = () => {
                       </TextFooter>
                       <TextFooter className="">
                           <Link
-                              to="/cobuyer-stories"
+                              to="/"
                           >
                               CoBuyer Stories
                           </Link>
                       </TextFooter>
                       <TextFooter className="">
                           <Link
-                              to="/refer-a-friend"
+                              to="/"
                           >
                               Refer a Friend
                           </Link>
@@ -69,14 +69,14 @@ export const Footer = () => {
                       </HeadingFooter>
                       <TextFooter >
                           <Link
-                              to="/privacy-policy"
+                              to="/"
                           >
                               Privacy Policy
                           </Link>
                       </TextFooter>
                       <TextFooter >
                           <Link
-                              to="/terms-of-use"
+                              to="/"
                           >
                               Terms of Use
                           </Link>

@@ -4,12 +4,15 @@ import styled from 'styled-components'
 import Layout from '../components/Layout/Layout'
 import BlogPostContent from '../components/BlogPostSections/BlogPostContent'
 import { SpringFadeUp } from "../utils/animation"
+import SEO from "../components/Seo/Seo"
 
 const BlogPostPage = props => {
 
   const post = props.data.allContentfulBlogPost.edges[0].node;
+  console.log(post)
   return (
     <Layout>
+        <SEO title={post.title} />
         <PostWrapper>
           <SpringFadeUp>
             <BlogPostContent post={post} />

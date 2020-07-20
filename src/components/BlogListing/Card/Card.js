@@ -87,6 +87,8 @@ const CardExcerpt = styled.p`
 `
 
 const CallToAction = styled(Link)`
+  font-family:Open Sans;
+  font-weight:800;
   padding:0.4em 0;
   font-size:16px;
   color: rgba(41,24,66,0.61);

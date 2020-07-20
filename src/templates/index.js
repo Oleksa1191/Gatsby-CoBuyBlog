@@ -1,16 +1,21 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-
+import SEO from "../components/Seo/Seo"
 import Layout from '../components/Layout/Layout'
 import { CardListing } from '../components/BlogListing/CardListing/CardListing'
+import useFeaturedBlogPost from "../hooks/useFeaturedPost"
+import BlogHero from '../components/BlogHero/BlogHero'
 
 
 const BlogMainPage = props => {
 
   const cardsData = props.data.allContentfulBlogPost.edges
+  
+  
   return (
     <Layout>
-        <CardListing cardsData={cardsData} ></CardListing>
+      <SEO title='Blog Home page' />
+      <CardListing cardsData={cardsData} ></CardListing>
     </Layout>
   )
 }

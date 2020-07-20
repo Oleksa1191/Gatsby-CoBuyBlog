@@ -1,15 +1,21 @@
-const path = require(`path`);
 
 module.exports = {
     siteMetadata: {
-      title: `CoBuy blog`
+      title: `CoBuy blog`,
+      description:
+      "CoBuy blog.",
+      url: "https://blog.gocobuy.com/", // No trailing slash allowed!
+      image: "/cobuy.png", // Path to your image you placed in the 'static' folder
+      twitterUsername: "@occlumency",
+      author: "CoBuy Team"
     },
     plugins: [
       {
-        resolve: `gatsby-source-filesystem`,
+        // keep as first gatsby-source-filesystem plugin for gatsby image support
+        resolve: 'gatsby-source-filesystem',
         options: {
-            path: path.join(__dirname, `src`, `images`),
-            name: `images`,
+          path: `${__dirname}/static/`,
+          name: 'uploads',
         },
       },
       {
@@ -47,6 +53,30 @@ module.exports = {
           ]
         }
       },
+      {
+        resolve: `gatsby-plugin-manifest`,
+        options: {
+          name: `gatsby-cobuy-blog`,
+          short_name: `cobuy-blog`,
+          start_url: `/`,
+          display: `minimal-ui`,
+          icon: `src/images/logo-medium.png`, // This path is relative to the root of the site.
+        },
+      },
+      {
+        resolve: `gatsby-plugin-facebook-pixel`,
+        options: {
+          pixelId: "682416605852271",
+        },
+      },
+      {
+        resolve: `gatsby-plugin-google-analytics`,
+        options: {
+            // The property ID; the tracking code won't be generated without it
+            trackingId: "UA-86661345-1",
+            head: true,
+        },
+    },
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-sharp`, 
       `gatsby-plugin-sharp`

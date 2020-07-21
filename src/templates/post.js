@@ -3,20 +3,18 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components'
 import Layout from '../components/Layout/Layout'
 import BlogPostContent from '../components/BlogPostSections/BlogPostContent'
-import { SpringFadeUp } from "../utils/animation"
+
 import SEO from "../components/Seo/Seo"
 
 const BlogPostPage = props => {
-
+  
   const post = props.data.allContentfulBlogPost.edges[0].node;
-  console.log(post)
+  
   return (
     <Layout>
         <SEO title={post.title} />
         <PostWrapper>
-          <SpringFadeUp>
-            <BlogPostContent post={post} />
-          </SpringFadeUp>
+            <BlogPostContent location={props.location} post={post} />
         </PostWrapper>
     </Layout>
   )
@@ -35,6 +33,14 @@ export const contentfulBlogPageQuery = graphql`
           slug
           title
           tags
+          authorInfo {
+            name
+            image {
+              fixed(width: 64, height: 64) {
+                ...GatsbyContentfulFixed_withWebp
+              }
+            } 
+          }
           image {
             fluid(maxWidth: 800){
               ...GatsbyContentfulFluid_withWebp
@@ -55,6 +61,8 @@ export const contentfulBlogPageQuery = graphql`
 
 const PostWrapper = styled.div`
   padding-top:96px;
+  max-width:970px;
+  margin:0 auto;
 `
 
 

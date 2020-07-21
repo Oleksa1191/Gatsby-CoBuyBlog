@@ -76,6 +76,7 @@ const CardHeader = styled.span`
   
   ${MainCard}:hover & {
     background-size: 100% .4em;
+    color:#3899da;
   }
 `
 
@@ -93,6 +94,9 @@ const CallToAction = styled(Link)`
   font-size:16px;
   color: rgba(41,24,66,0.61);
   text-decoration:none;
+  ${MainCard}:hover & {
+    color:#3899da;
+  }
 `
 
 const CardImage = styled.figure`
@@ -117,6 +121,7 @@ const CardImage = styled.figure`
     ${MainCard}:hover & {
       transform:scale(1.03);
       box-shadow: -2px 6px 21px -9px rgba(0,0,0,0.75);
+      
     }
 `
 

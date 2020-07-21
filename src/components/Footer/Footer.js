@@ -16,7 +16,7 @@ export const Footer = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                       >
-                         <LogoImage src="./cobuy.png" alt="footer-logo" />
+                         <LogoImage src={'/cobuy.png'} alt="footer-logo" />
                       </a>
                   </li>
                   <TextFooter>
@@ -33,8 +33,12 @@ export const Footer = () => {
                               hello@gocobuy.com
                           </a>
                       </TextFooter>
-                      <TextFooter className="   text-white">
-                          206-651-5551
+                      <TextFooter className="text-white">
+                          <a
+                              href="tel:206-651-5551"
+                          >
+                            206-651-5551
+                          </a>
                       </TextFooter>
                   </ul>
                   <ul>
@@ -151,10 +155,13 @@ const TextFooter = styled.li`
   font-weight:400;
   margin:0.5em 0;
   opacity:0.95;
+  a {
+    font-size:14px;
+  }
 `
 
 const HeadingFooter = styled.li`
-  font-size:16px;
+  font-size:18px;
   line-height:24px;
   color:#ffffff;
   opacity:0.95;
@@ -188,12 +195,12 @@ const WrapperLinks = styled.div`
     text-decoration:none;
     transition: all .4s ease-out;
     :hover {
-      color:#26a8ed;
+      color:#3899da;
       text-decoration:underline;
     }
   }
   ul {
-    padding: 0 1.5em 0 1.3em;
+    padding: 0 1.7em 0 1.3em;
     @media (max-width:800px) {
       width:33%;
       margin-bottom:2rem;

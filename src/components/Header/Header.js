@@ -36,7 +36,7 @@ export const Header = props => {
             <LogoWrapper className="site-mast-left">
                 <Link to="/"> 
                     <img
-                        src="./logo-blue.png"
+                        src={'/header-icon.png'}
                         alt="cobuy-logo"
                     />
                 </Link>
@@ -54,6 +54,13 @@ export const Header = props => {
                   <div>
                       <LinkHeader>
                           CoBuyer Stories
+                      </LinkHeader>
+                  </div>
+              </Link>
+              <Link to="/" className="mr-3">
+                  <div>
+                      <LinkHeader>
+                          Refer a friend
                       </LinkHeader>
                   </div>
               </Link>
@@ -101,14 +108,14 @@ const StyledHeader =  styled.header`
 `
 
 const LogoWrapper = styled.div`
-  max-width:100px;
+  max-width:180px;
   width:100%;
   height:auto;
 `
 
 const LinksWrapper = styled.div`
   width:100%;
-  max-width:500px;
+  max-width:550px;
   display:flex;
   flex-direction:row;
   justify-content:space-between;
@@ -175,10 +182,13 @@ const LinkHeader = styled.span`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #4B535F;
+    background-color: #3899da;
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s;
+  }
+  :hover {
+    color:#3899da;
   }
   :hover:after {
     transform-origin: bottom left;

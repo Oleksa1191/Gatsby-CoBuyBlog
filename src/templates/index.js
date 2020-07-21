@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import SEO from "../components/Seo/Seo"
 import Layout from '../components/Layout/Layout'
 import { CardListing } from '../components/BlogListing/CardListing/CardListing'
-import useFeaturedBlogPost from "../hooks/useFeaturedPost"
+
 
 
 

@@ -40,7 +40,7 @@ ListingCard.propTypes = {
 
 const MainCard = styled(Link)`
   @media (min-width: 1170px) and (orientation: landscape) {
-      max-width:390px;
+      max-width:400px;
       width: 100%;
       padding:0 32px;
   }
@@ -63,7 +63,7 @@ const CardHeader = styled.span`
   line-height: 1.55;
   padding:0.4em 0;
   margin-top:1rem;
-  color:#4B535F;
+  color:#444444;
   position:relative;
   background-image: linear-gradient(to bottom, currentColor 25%, transparent 25%);
   background-repeat: no-repeat;
@@ -84,15 +84,15 @@ const CardExcerpt = styled.p`
   margin-bottom:1rem;
   font-size:16px;
   line-height: 1.6;
-  color: rgba(41,24,66,0.61);
+  color:#444444;
 `
 
-const CallToAction = styled(Link)`
+const CallToAction = styled.div`
   font-family:Open Sans;
   font-weight:800;
   padding:0.4em 0;
   font-size:16px;
-  color: rgba(41,24,66,0.61);
+  color:#444444;
   text-decoration:none;
   ${MainCard}:hover & {
     color:#3899da;

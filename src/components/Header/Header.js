@@ -50,7 +50,7 @@ export const Header = props => {
                   </div>
               </Link>
 
-              <Link to="/" className="mr-3">
+              <Link to="/co-buyer-stories" className="mr-3">
                   <div>
                       <LinkHeader>
                           CoBuyer Stories
@@ -175,6 +175,7 @@ const LinkHeader = styled.span`
   text-decoration:none;
   position:relative;
   padding-bottom:4px;
+  font-size:18px;
   :after {
     content: '';
     position: absolute;

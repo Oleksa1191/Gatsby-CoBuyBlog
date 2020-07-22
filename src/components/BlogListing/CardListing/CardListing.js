@@ -7,44 +7,42 @@ import Card from "../Card/Card"
 import { SpringFadeUp, TrailFadeUp } from "../../../utils/animation"
 
 export const CardListing = props => {
-  console.log(props)
+
 
   return (
-      <SectionLayout alignContent="center">
-        <RowCards gutter={16}>
-          <TrailFadeUp>
+      <TrailFadeUp>
+        <SectionLayout alignContent="center">   
+          <RowCards gutter={16}>
+            
             {props.cardsData.map((card, index) => {
               return (
-                <StyledCol xl={8} lg={8} xs={24} sm={8} key={index}>
+                <StyledCol xl={8} lg={8} xs={18} sm={12} key={index}>
                   <Card data={card} cta="Read more"/>
                 </StyledCol>
               )
             })}
-          </TrailFadeUp>
-        </RowCards>
-      </SectionLayout>
+          
+          </RowCards> 
+        </SectionLayout>
+      </TrailFadeUp>
+      
   )
 }
 
 
 
 const RowCards = styled(Row)`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 196px 0 0 ;
-  >div {
-    display:flex;
-    flex-direction:row;
-  }
-  @media (max-width: 575px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  width:100% !important;
+  margin:0 auto;
+  padding: 196px 0 0;
+  display:flex !important;
+  flex-flow: row wrap !important;  
 `
 
 const StyledCol = styled(Col)`
-  margin-bottom: 30px;
-
+  margin-bottom: 48px;
+  @media(max-width:576px) {
+    margin:32px auto;
+  }
+  
 `

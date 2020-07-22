@@ -3,19 +3,19 @@ import { graphql } from 'gatsby';
 import SEO from "../components/Seo/Seo"
 import Layout from '../components/Layout/Layout'
 import { CardListing } from '../components/BlogListing/CardListing/CardListing'
-
+import Pagination from '../components/Pagination/Pagination'
 
 
 
 const BlogMainPage = props => {
 
   const cardsData = props.data.allContentfulBlogPost.edges
-  
-  
+
   return (
     <Layout>
       <SEO title='Blog Home page' />
       <CardListing cardsData={cardsData} ></CardListing>
+      <Pagination pageContext={props?.pageContext} />
     </Layout>
   )
 }

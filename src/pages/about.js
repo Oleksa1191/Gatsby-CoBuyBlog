@@ -3,19 +3,22 @@ import Layout from "../components/Layout/Layout"
 import SEO from "../components/Seo/Seo"
 import { graphql } from 'gatsby';
 import styled from 'styled-components'
+import { SpringFadeUp } from "../utils/animation"
 
 const About = (props) => {
   const aboutData = props.data.allContentfulAboutPage.nodes[0].childContentfulAboutPageAboutInfoTextNode.childMarkdownRemark.html
-  console.log(aboutData)
   return (
     <Layout>
       About page
       <SEO title='About' />
-      <WrapperAbout>
-          <div
-            dangerouslySetInnerHTML={{ __html: `<div> ${aboutData} </div>` }}
-          />
-      </WrapperAbout>
+      <SpringFadeUp>
+        <WrapperAbout>
+            <div
+              dangerouslySetInnerHTML={{ __html: `<div> ${aboutData} </div>` }}
+            />
+        </WrapperAbout>
+      </SpringFadeUp>
+     
     </Layout>
   )
 }
@@ -45,52 +48,75 @@ const WrapperAbout = styled.div`
   line-height: 27px;
   padding-bottom: 61px;
   border-bottom: 1px solid #3c484e;
-  color: #3c484e;
-
-  ul {
-    margin:1em 22px;
+  color:#444444;
+  .button {
+    margin:0 auto !important;
+    display:block !important;
+    max-width:150px  !important;
+    margin-top:2rem !important;
   }
   ul {
-    list-style:square;
     li {
-      margin:0.4em 0;
+      margin: .8em 0;
+      list-style: none;
+      font-size:20px;
+      line-height:1.65em;
+    }
+    li::before {
+      content: "•"; 
+      color: #3899da;
+      margin-right:0.4rem;
     }
   }
   h1 {
-    margin:1.2em 0;
+    margin:1.7em 0;
+    color:#444444;
+    font-weight: 700;
   }
   h2 {
-    margin:1em 0;
+    margin:1.5em 0;
+    color:#3899da;
+    font-weight: 700;
   }
   h3 {
-    margin:0.8em 0;
+    margin: .5em 0 .2em;
+    color:#444444;
+    font-weight: 700;
   }
   a {
     color: #3899da;
+    text-decoration:none;
+  }
+  a:hover {
+    text-decoration:underline;
   }
   p {
-    margin:0.6em 0;
+    margin:1.5em 0;
+    font-size:20px;
+    line-height:1.65em;
   }
   table {
     width:100%;
-    max-width:500px;
+    max-width:900px;
     margin:0 auto;
   }
   table, th, td {
     border: 1px solid black;
   }
+  
   th:nth-of-type(1)  {
     border-left:none;
     border-right:none;
     position:relative;
     text-align:left;
-    padding:0 32px;
+    padding:16px 32px;
     font-size:24px;
     font-weight:600;
   }
   th:nth-of-type(2)  {
     border-right:none;
     border-left:none;
+    padding:16px 0;
   }
   td {
     padding:16px;
@@ -103,18 +129,16 @@ const WrapperAbout = styled.div`
     p {
       font-size: 18px;
       letter-spacing: 0;
-      color: #3c484e;
-      margin:0 auto;
-      display:inline-block;
-      margin-top:1em;
+      color:#444444;
+      display:block;
+      margin:0.1em auto;
     }
     span {
       font-weight:600;
       font-size: 18px;
       letter-spacing: 0;
-      color: #3c484e;
-      margin:0 auto;
-      margin-top:1em;
+      color:#444444;
+      margin:0.3em auto;
     }
   }
 `

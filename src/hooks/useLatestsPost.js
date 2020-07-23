@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby"
 
-const useFeaturedBlogPost = () => {
+const useLatestBlogPosts = () => {
   const { allContentfulBlogPost } = useStaticQuery(
     graphql`
       query {
-        allContentfulBlogPost(filter: {featured: {eq: true}}) {
+        allContentfulBlogPost(limit: 3, sort: {fields: createdAt, order: DESC}) {
           edges {
             node {
               slug
@@ -28,6 +28,6 @@ const useFeaturedBlogPost = () => {
       }
     `
   )
-  return allContentfulBlogPost?.edges[0]?.node
+  return allContentfulBlogPost?.edges
 }
-export default useFeaturedBlogPost
+export default useLatestBlogPosts

@@ -205,6 +205,7 @@ export const PaginationItem = styled(Link)`
   text-decoration: none;
   font-family: Roboto;
   font-size: 14px;
+  line-height:20px;
   display: flex;
   align-items: center;
   justify-content: center;

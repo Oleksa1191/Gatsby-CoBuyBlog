@@ -30,10 +30,11 @@ const InnerContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding:0 32px;
   @media(max-width:576px) {
     padding:0 16px;
+    align-items:center;
   }
 `;
 

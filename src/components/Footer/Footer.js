@@ -149,24 +149,27 @@ const StyledFooter =  styled.footer`
 `
 
 const TextFooter = styled.li`
+  font-family:Quicksand;
   font-size:16px;
-  line-height:24px;
+  line-height:32px !important;
   color:#ffffff;
   font-weight:400;
-  margin:0.5em 0;
   opacity:0.95;
+  margin-bottom:24px !important;
   a {
     font-size:14px;
   }
 `
 
 const HeadingFooter = styled.li`
-  font-size:18px;
-  line-height:24px;
+  font-family:Quicksand;
+  font-size:24px;
+  line-height:32px;
   color:#ffffff;
   opacity:0.95;
   font-weight:700;
-  margin:0.5rem 0 1.5rem;
+  margin-bottom:24px !important;
+  letter-spacing:0.15px;
 `
 
 const WraperContent = styled.div`
@@ -228,7 +231,9 @@ const WrapperLogo = styled.div`
   li  {
     list-style:none;
   }
-  
+  img {
+    margin-bottom:16px;
+  }
   @media (max-width:1080px) {
     padding: 0 1.5em 0 1.3em;
     max-width:250px;
@@ -252,6 +257,11 @@ const WrapperIcons = styled.div`
   flex-direction:row;
   width:115px;
   justify-content:space-between;
+  margin-top:24px;
+  align-items:center;
+  a {
+    height:30px;
+  }
 `
 
 const LogoImage= styled.img`

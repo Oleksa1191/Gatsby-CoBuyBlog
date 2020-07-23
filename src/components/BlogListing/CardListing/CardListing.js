@@ -11,7 +11,8 @@ export const CardListing = props => {
 
   return (
       <TrailFadeUp>
-        <SectionLayout alignContent="center">   
+        <SectionLayout alignContent="center">  
+          <ListingTitle>Blog Lists</ListingTitle> 
           <RowCards gutter={24}>
             
             {props.cardsData.map((card, index) => {
@@ -34,7 +35,7 @@ export const CardListing = props => {
 const RowCards = styled(Row)`
   width:100% !important;
   margin:0 auto;
-  padding: 196px 0 0;
+  padding: 36px 0 0;
   display:flex !important;
   flex-flow: row wrap !important;  
   @media(max-width:576px) {
@@ -48,4 +49,14 @@ const StyledCol = styled(Col)`
     margin:32px auto;
   }
   
+`
+const ListingTitle = styled.h2`
+  font-family:Quicksand;
+  text-align:left;
+  font-size:34px;
+  font-weight:700;
+  line-height: 44px;
+  padding:0 0 24px;
+  color:#19191D;
+  text-transform:uppercase;
 `

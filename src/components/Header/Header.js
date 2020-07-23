@@ -41,7 +41,7 @@ export const Header = props => {
               >
                 {navbarOpen ? <Hamburger open /> : <Hamburger />}
               </Toggle>
-            <LogoWrapper className="site-mast-left">
+            <LogoWrapper>
                 <Link to="/"> 
                     <img
                         src={'/header-icon.png'}
@@ -69,7 +69,6 @@ export const Header = props => {
               rel="noopener noreferrer"
             >
               <StyledButton
-                  className="bg-green hover:bg-hovergreen transition duration-100 py-3 px-6 text-white text-sm outline-none"
                   style={{ color: "white", borderRadius: "10px" }}
               >
                       Learn More
@@ -98,12 +97,14 @@ const StyledButton = styled.button`
   transition: all .1s ease-in;
   font-size:14px;
   box-shadow:border-box;
-  border:1px solid #ffffff !important;
   color:#2264D1 !important;
   font-family:Roboto;
   font-weight:500;
   text-transform:uppercase;
   font-family:Quicksand;
+  :hover {
+    box-shadow: 0px 4px 8px #C4DAFF;
+  }
 `
 
 
@@ -234,7 +235,7 @@ const Navbox = styled.div`
   align-items:center;
   justify-content:space-between;
   width:100%;
-  max-width:500px;
+  max-width:590px;
   .active {
     border-bottom:3px solid #3899da !important;
   }

@@ -31,6 +31,8 @@ module.exports = {
           fonts: [
             `Lato\:300,400,400i,700`,
             `Open Sans\:300,400,400i,700`, 
+            `Quicksand\:300,400,400i,500,700`,
+            `Roboto\:300,400,400i,700`,
           ],
           display: 'swap'
         }
@@ -47,9 +49,10 @@ module.exports = {
               }
             },
             {
-              resolve: "gatsby-remark-responsive-iframe"
+              resolve:`gatsby-remark-responsive-iframe`
             },
-            "gatsby-remark-prismjs",
+            `gatsby-remark-prismjs`,
+            `gatsby-remark-reading-time`,
           ]
         }
       },

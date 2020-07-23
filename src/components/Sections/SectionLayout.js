@@ -25,12 +25,16 @@ SectionLayout.defaultProps = {
 
 const InnerContainer = styled.div`
   width: 100%;
-  padding-left: calc(5% - 16px);
-  padding-right: calc(5% - 16px);
+  max-width:1344px;
+  margin:0 auto;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding:0 32px;
+  @media(max-width:576px) {
+    padding:0 16px;
+  }
 `;
 
 const Layout = styled.div`

@@ -12,11 +12,11 @@ export const CardListing = props => {
   return (
       <TrailFadeUp>
         <SectionLayout alignContent="center">   
-          <RowCards gutter={16}>
+          <RowCards gutter={24}>
             
             {props.cardsData.map((card, index) => {
               return (
-                <StyledCol xl={8} lg={8} xs={18} sm={12} key={index}>
+                <StyledCol xl={6} lg={6} xs={24} sm={12} md={8} key={index}>
                   <Card data={card} cta="Read more"/>
                 </StyledCol>
               )
@@ -37,6 +37,9 @@ const RowCards = styled(Row)`
   padding: 196px 0 0;
   display:flex !important;
   flex-flow: row wrap !important;  
+  @media(max-width:576px) {
+    padding-top:64px;
+  }
 `
 
 const StyledCol = styled(Col)`

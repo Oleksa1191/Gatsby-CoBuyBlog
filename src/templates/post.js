@@ -33,6 +33,7 @@ export const contentfulBlogPageQuery = graphql`
           slug
           title
           tags
+          createdAt(formatString: "MMMM DD, YYYY")
           authorInfo {
             name
             image {
@@ -51,6 +52,7 @@ export const contentfulBlogPageQuery = graphql`
               id
               html
               excerpt
+              timeToRead
             }
           }
         }

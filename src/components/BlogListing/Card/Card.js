@@ -12,22 +12,28 @@ const ListingCard = ({
   data,
   cta
 }) => {
-  
+  let link = data.node.slug
   return (
-    <MainCard to={data.node.slug}>
-        <CardImage>
-          <Img fluid={data.node.image.fluid} />
-        </CardImage>
-        <CardHeader>
-          {data.node.title}
-        </CardHeader>
-        <CardExcerpt>
-          {data.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt}
-        </CardExcerpt>
-        <CallToAction to={data.node.slug}>
-          {cta}
-        </CallToAction>
+    <>
+    <MainCard to={`/${link}`}>
+        <BodyCard>
+          <CardImage>
+            <Img fluid={data.node.image.fluid} />
+          </CardImage>
+          <CardHeader>
+            {data.node.title}
+          </CardHeader>
+          <CardExcerpt>
+            {data.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt}
+          </CardExcerpt>
+        </BodyCard>
+        <FooterCard>
+          <CallToAction>
+            {cta}
+          </CallToAction>
+        </FooterCard>
     </MainCard>
+    </>
   )
 }
 
@@ -42,61 +48,60 @@ const MainCard = styled(Link)`
   @media (min-width: 1170px) and (orientation: landscape) {
       max-width:400px;
       width: 100%;
-      padding:0 32px;
+      padding:12px 0 0;
   }
   text-align:left;
   display:block;
   text-decoration:none;
-
+  border-radius:4px;
+  box-shadow: 0px 2px 4px #D2D6ED;
   :active {
     color: rgba(41,24,66,0.61);
   }
-  
+  :hover {
+    background-color:#F0F1F9;
+  }
 `
 
 const CardHeader = styled.span`
-  font-family:Lato;
+  font-family:Quicksand;
   text-align:left;
-  font-size:20.25px;
-  letter-spacing: -.005em;
+  font-size:24px;
   font-weight:700;
-  line-height: 1.55;
-  padding:0.4em 0;
-  margin-top:1rem;
-  color:#444444;
+  line-height: 36px;
+  padding:16px 0;
+  color:#19191D;
   position:relative;
   background-image: linear-gradient(to bottom, currentColor 25%, transparent 25%);
   background-repeat: no-repeat;
   background-position-y: bottom;
   background-position-x: left;
   background-size: 0% .4em;
-  padding:0.4em 0;
   
   transition: background-size 0.3s;
   
-  ${MainCard}:hover & {
-    background-size: 100% .4em;
-    color:#3899da;
-  }
+  
 `
 
 const CardExcerpt = styled.p`
-  margin-bottom:1rem;
+  padding-top:12px;
   font-size:16px;
   line-height: 1.6;
   color:#444444;
+  font-family:Roboto;
 `
 
-const CallToAction = styled.div`
-  font-family:Open Sans;
-  font-weight:800;
-  padding:0.4em 0;
+const CallToAction = styled.p`
+  font-family:Roboto;
+  font-weight:700;
+  padding:0.4em 16px;
   font-size:16px;
   color:#444444;
   text-decoration:none;
-  ${MainCard}:hover & {
-    color:#3899da;
-  }
+  text-align:right;
+  margin-bottom:0;
+  border-top:1px solid #E1E1E3;
+  
 `
 
 const CardImage = styled.figure`
@@ -104,8 +109,9 @@ const CardImage = styled.figure`
     position: relative;
     transition: all 0.3s;
     margin-bottom:1em;
+    height:200px;
     div {
-      max-height:180px;
+      height:200px;
     }
     img {
       position: absolute;
@@ -113,16 +119,22 @@ const CardImage = styled.figure`
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
       transition: 0.25s cubic-bezier(0.32, 0.01, 0, 1);
-      
+      border-radius:4px;
+      height:228px;
     }
-    ${MainCard}:hover & {
-      transform:scale(1.03);
-      box-shadow: -2px 6px 21px -9px rgba(0,0,0,0.75);
-      
-    }
+    
+`
+
+const BodyCard = styled.div`
+    padding:0 16px;
+    height:500px;
+`
+
+const FooterCard = styled.div`
+    
 `
 
 

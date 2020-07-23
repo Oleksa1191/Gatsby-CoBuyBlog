@@ -32,7 +32,10 @@ const BlogPostContent = ({ post,location, ...otherProps }) => {
               <AuthorImage alt="author-image"
                             fixed={post.authorInfo.image.fixed}
               />
-              <AuthorName><span>By</span> {post.authorInfo.name}</AuthorName>   
+              <PostInfo>
+                <AuthorName><span>By</span> {post.authorInfo.name}</AuthorName>   
+                <CreatedAt>{post.createdAt} {post.childContentfulBlogPostBodyTextNode.childMarkdownRemark.timeToRead} min read</CreatedAt>
+              </PostInfo>
             </AuthorImageWrapper>
             <AuthorSocials>
               <a href="#">
@@ -96,6 +99,9 @@ const ContentWrapper = styled.div`
   max-width: 970px;
   padding: 64px;
   box-sizing: border-box;
+  @media (max-width: 768px) {
+    padding:32px 16px 0;
+  }
 `
 
 const ContentBody = styled.div`
@@ -164,6 +170,30 @@ const ContentBody = styled.div`
     max-width:150px  !important;
     margin-top:2rem !important;
   }
+
+  @media (max-width: 768px) {
+    padding-bottom: 32px;
+    h1 {
+      margin:1.2em 0;
+      font-weight: 700;
+      font-size:34px;
+    }
+    h2 {
+      margin:0.9em 0;
+      color:#444444;
+      font-size:28px;
+    }
+    h3 {
+      margin: .7em 0 .2em;
+      color:#444444;
+      font-size:24px;
+    }
+    p {
+      margin:0.5em 0;
+      font-size:20px;
+      line-height:1.65em;
+    }
+  }
 `
 
 
@@ -176,6 +206,10 @@ const CobuyTitle = styled.h3`
   font-size: 51.957px;
   color:#3899da;
   text-align:left;
+  @media (max-width: 768px) {
+    font-size: 32px;
+    padding:16px 0;
+  }
 `
 const ShareLinks = styled.div`
   max-width: 842px;
@@ -186,11 +220,21 @@ const ShareLinks = styled.div`
   justify-content:space-between;
   margin-bottom:2em;
   h4 {
-    color: #3c484e;
-    
+    color: #3c484e;  
   }
   button {
     outline:none;
+  }
+  @media (max-width: 768px) {
+    padding: 0 16px;
+    margin:0.8em auto;
+    svg {
+      width:32px;
+      height:32px;
+    }
+    h4 {
+      margin-bottom:0;
+    }
   }
 `
 
@@ -216,7 +260,7 @@ const AuthorImageWrapper = styled.div`
   flex-direction:row;
   justify-content:space-between;
   align-items:flex-start;
-  width:210px;  
+  max-width:320px;  
 `
 
 const AuthorSocials =styled.div`
@@ -234,7 +278,18 @@ const AuthorImage = styled(Img)`
 const AuthorName = styled.span`
   font-weight:600;
   margin-top:2px;
+  font-size:16px;
   span {
     font-weight:400;
   }
+`
+
+const CreatedAt = styled.span`
+  margin-top:8px;
+`
+
+const PostInfo = styled.div`
+  display:flex;
+  flex-direction:column;
+  margin-left:16px;
 `

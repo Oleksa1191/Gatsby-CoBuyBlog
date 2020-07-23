@@ -25,7 +25,7 @@ export default CoBuyerStories
 
 
 const WrapperStories = styled.div`
-    padding-top:128px;
+    padding-top:32px;
     max-width:900px;
     margin:0 auto 32px;
     font-size: 18px;
@@ -39,4 +39,5 @@ const StorieTitle = styled.h1`
     margin:1.7em 0;
     color:#444444;
     font-weight: 700;
+    line-height:1.1;
 `

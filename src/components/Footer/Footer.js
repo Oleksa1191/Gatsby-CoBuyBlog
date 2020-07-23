@@ -93,7 +93,7 @@ export const Footer = () => {
                       
                       <WrapperIcons>
                           <a
-                              href={`https://www.facebook.com/cobuyusa`}
+                              href={`https://www.facebook.com/CoBuyUSA/`}
                               target="_blank"
                               rel="noopener noreferrer"
                           >
@@ -103,7 +103,7 @@ export const Footer = () => {
                               />
                           </a>
                           <a
-                              href={`https://www.twitter.com/gocobuy`}
+                              href={`https://twitter.com/gocobuy`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="ml-5"

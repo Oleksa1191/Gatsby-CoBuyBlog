@@ -294,3 +294,7 @@ h4 {
 h5 {
     font-size: 1.25em;
 }
+
+ul, li {
+    margin-bottom: 0 !important;
+}

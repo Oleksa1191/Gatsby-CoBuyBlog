@@ -2,10 +2,11 @@ import React, {useState, useEffect} from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from 'gatsby'
-
+import NavLinks from './NavLinks'
 
 export const Header = props => {
-  
+  const [navbarOpen, setNavbarOpen] = useState(false)
+
   const isBrowser = typeof window !== `undefined`
   const [scrollPos, setscrollPos] = useState(0)
   const [show, setShow] = useState(true)
@@ -32,7 +33,14 @@ export const Header = props => {
   
   return (
     <>
-      <StyledHeader> 
+      <StyledHeader>
+            <ContainerNavigation>
+              <Toggle
+                navbarOpen={navbarOpen}
+                onClick={() => setNavbarOpen(!navbarOpen)}
+              >
+                {navbarOpen ? <Hamburger open /> : <Hamburger />}
+              </Toggle>
             <LogoWrapper className="site-mast-left">
                 <Link to="/"> 
                     <img
@@ -41,43 +49,34 @@ export const Header = props => {
                     />
                 </Link>
             </LogoWrapper>
-            <LinksWrapper className="site-mast-right">
-              <Link to="/about" className="">
-                  <div>
-                      <LinkHeader>
-                          About
-                      </LinkHeader>
-                  </div>
-              </Link>
-
-              <Link to="/co-buyer-stories" className="mr-3">
-                  <div>
-                      <LinkHeader>
-                          CoBuyer Stories
-                      </LinkHeader>
-                  </div>
-              </Link>
-              <Link to="/" className="mr-3">
-                  <div>
-                      <LinkHeader>
-                          Refer a friend
-                      </LinkHeader>
-                  </div>
-              </Link>
-              <a
-                  href="https://form.typeform.com/to/w8bOOQJL"
-                  className="ml-5 outline-none"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            {navbarOpen ? (
+              
+                 <Navbox >
+                    <NavLinks />
+                  </Navbox>
+              
+            ) : (
+              
+                <Navbox  open>
+                    <NavLinks />
+                </Navbox>
+              
+            )}
+            <a
+              href="https://form.typeform.com/to/w8bOOQJL"
+              className="ml-5 outline-none"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StyledButton
+                  className="bg-green hover:bg-hovergreen transition duration-100 py-3 px-6 text-white text-sm outline-none"
+                  style={{ color: "white", borderRadius: "10px" }}
               >
-                  <StyledButton
-                      className="bg-green hover:bg-hovergreen transition duration-100 py-3 px-6 text-white text-sm outline-none"
-                      style={{ color: "white", borderRadius: "10px" }}
-                  >
                       Learn More
-                  </StyledButton>
-              </a>
-            </LinksWrapper>
+              </StyledButton>
+            </a>
+            </ContainerNavigation>
+            
       </StyledHeader>
       <Transition>
         <Submenu className={show ? "active" : "hidden"}>
@@ -90,20 +89,40 @@ export const Header = props => {
   )
 }
 
+const StyledButton = styled.button`
+  background-color:#EBF2FF;
+  border-radius:4px !important;
+  border:none;
+  outline:none;
+  padding:8px 12px;
+  transition: all .1s ease-in;
+  font-size:14px;
+  box-shadow:border-box;
+  border:1px solid #ffffff !important;
+  color:#2264D1 !important;
+  font-family:Roboto;
+  font-weight:500;
+  text-transform:uppercase;
+  font-family:Quicksand;
+`
+
 
 const StyledHeader =  styled.header`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
   align-items:center;
-  padding:0 32px;
   position: fixed;
   width: 100%;
-  height:80px;
+  height:64px;
   background:#ffffff;
   z-index:1024;
+  box-shadow: 0 2px 4px #D2D2D6;
   a {
     text-decoration:none;
+  }
+  @media (max-width: 768px) {
+    padding:0;
   }
 `
 
@@ -111,34 +130,14 @@ const LogoWrapper = styled.div`
   max-width:180px;
   width:100%;
   height:auto;
-`
-
-const LinksWrapper = styled.div`
-  width:100%;
-  max-width:550px;
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-  align-items:center;
-`
-
-const StyledButton = styled.button`
-  background-color:#9cd64b;
-  border-radius:4px !important;
-  border:none;
-  outline:none;
-  padding:16px 24px;
-  transition: all .1s ease-in;
-  font-size:16px;
-  box-shadow:border-box;
-  border:1px solid #ffffff !important;
-  :hover {
-    background-color:#ffffff;
-    color:#9cd64b !important;
-    border:1px solid #9cd64b !important;
-    margin-top:2.2px;
+  @media (max-width: 768px) {
+    max-width:120px;
   }
 `
+
+
+
+
  
 const Transition = styled.div`
   .active {
@@ -167,33 +166,107 @@ const Submenu = styled.div`
   background:#ffffff;
   padding:0 32px;
   color:#4B535F;
-  
+  display:none;
 `
 
-const LinkHeader = styled.span`
-  color:#4B535F;
-  text-decoration:none;
-  position:relative;
-  padding-bottom:4px;
-  font-size:18px;
-  :after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #3899da;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s;
-  }
-  :hover {
-    color:#3899da;
-  }
-  :hover:after {
-    transform-origin: bottom left;
-    transform: scaleX(1);
+
+
+const ContainerNavigation = styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 32px;
+  max-width:1280px;
+  margin:0 auto;
+  width:100%;
+  @media (max-width: 768px) {
+    padding:0;
+    justify-content:space-around;
   }
 `
+
+const Hamburger = styled.div`
+  background-color: #111;
+  width: 30px;
+  height: 3px;
+  transition: all .3s linear;
+  align-self: center;
+  position: relative;
+  transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
+
+  ::before,
+  ::after {
+    width: 30px;
+    height: 3px;
+    background-color: #111;
+    content: "";
+    position: absolute;
+    transition: all 0.3s linear;
+  }
+
+  ::before {
+    transform: ${props =>
+      props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
+    top: -10px;
+  }
+
+  ::after {
+    opacity: ${props => (props.open ? "0" : "1")};
+    transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
+    top: 10px;
+  }
+`
+
+const Toggle = styled.div`
+  display: none;
+  height: 100%;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`
+
+const Navbox = styled.div`
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  max-width:500px;
+  .active {
+    border-bottom:3px solid #3899da !important;
+  }
+  a {
+    div {
+      padding:0 16px;
+      transition: all .1s ease-out;
+      box-sizing:border-box;
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 10vh;
+    background-color: #fff;
+    transition: all 0.3s ease-in;
+    top: 8vh;
+    left: ${props => (props.open ? "-100%" : "0")};
+    a {
+      
+      @media (max-width: 768px) {
+        padding: 20px 0;
+        font-size: 1.5rem;
+        z-index: 6;
+        
+      }
+      
+    }
+    
+  }
+`
+
 

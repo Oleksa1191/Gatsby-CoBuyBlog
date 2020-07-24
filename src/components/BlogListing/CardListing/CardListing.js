@@ -4,13 +4,13 @@ import styled from "styled-components"
 import { Row, Col } from "antd"
 import { SectionLayout } from "../../Sections/SectionLayout"
 import Card from "../Card/Card"
-import { SpringFadeUp, TrailFadeUp } from "../../../utils/animation"
+
 
 export const CardListing = props => {
 
 
   return (
-      <TrailFadeUp>
+      
         <SectionLayout alignContent="center">  
           <ListingTitle>Blog Lists</ListingTitle> 
           <RowCards gutter={24}>
@@ -25,7 +25,7 @@ export const CardListing = props => {
           
           </RowCards> 
         </SectionLayout>
-      </TrailFadeUp>
+      
       
   )
 }

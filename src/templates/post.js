@@ -3,19 +3,23 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components'
 import Layout from '../components/Layout/Layout'
 import BlogPostContent from '../components/BlogPostSections/BlogPostContent'
-
+import LatestPosts from "../components/LatestPosts/LatestPosts"
+import useLatestsPost from "../hooks/useLatestsPost"
 import SEO from "../components/Seo/Seo"
 
 const BlogPostPage = props => {
   
   const post = props.data.allContentfulBlogPost.edges[0].node;
-  
+  const latestPosts = useLatestsPost()
   return (
     <Layout>
         <SEO title={post.title} />
         <PostWrapper>
             <BlogPostContent location={props.location} post={post} />
         </PostWrapper>
+        <LatestPosts
+          latestPosts={latestPosts}
+        />
     </Layout>
   )
 }

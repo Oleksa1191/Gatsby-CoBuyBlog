@@ -11,30 +11,30 @@ const LatestPosts = props => {
 
    
   return (
-      <SpringFadeUp>
-        <SectionLayout alignContent="center">
-          <LatestTitle>Latest Articles</LatestTitle>   
-          <RowCards gutter={24}>
-            {props.latestPosts.map((card, index) => {
-                 console.log(card)
-                 let link = card.node.slug
-              return (
-                <StyledCol xl={8} md={12} sm={24} xs={24} key={index}>
-                  <CardLatestPost to={`/${link}`}>
-                    <CardImage>
-                        <Img fluid={card.node.image.fluid} />
-                    </CardImage>
-                    <CardTitle>
-                        {card.node.title}
-                    </CardTitle>
-                  </CardLatestPost>
-                </StyledCol>
-              )
-            })}
-          
-          </RowCards> 
-        </SectionLayout>
-      </SpringFadeUp>
+     
+      <SectionLayout alignContent="center">
+        <LatestTitle>Latest Articles</LatestTitle>   
+        <RowCards gutter={24}>
+          {props.latestPosts.map((card, index) => {
+
+                let link = card.node.slug
+            return (
+              <StyledCol xl={8} md={12} sm={24} xs={24} key={index}>
+                <CardLatestPost to={`/${link}`}>
+                  <CardImage>
+                      <Img fluid={card.node.image.fluid} />
+                  </CardImage>
+                  <CardTitle>
+                      {card.node.title}
+                  </CardTitle>
+                </CardLatestPost>
+              </StyledCol>
+            )
+          })}
+        
+        </RowCards> 
+      </SectionLayout>
+      
       
   )
 }

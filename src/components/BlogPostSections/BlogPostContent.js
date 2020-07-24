@@ -34,18 +34,9 @@ const BlogPostContent = ({ post,location, ...otherProps }) => {
               />
               <PostInfo>
                 <AuthorName><span>By</span> {post.authorInfo.name}</AuthorName>   
-                <CreatedAt>{post.createdAt} {post.childContentfulBlogPostBodyTextNode.childMarkdownRemark.timeToRead} min read</CreatedAt>
               </PostInfo>
             </AuthorImageWrapper>
-            <AuthorSocials>
-              <a href="#">
-                <FacebookIcon size={32} round={true}></FacebookIcon>
-              </a>
-              <a href="#">
-                <TwitterIcon size={32} round={true}></TwitterIcon>
-              </a>
-             
-            </AuthorSocials>
+            
             
            </AuthorInfo>
         ) : null}
@@ -96,8 +87,8 @@ const ContentWrapper = styled.div`
   margin: 0 auto;
   background-color: #ffffff;
   height: auto;
-  max-width: 970px;
-  padding: 64px;
+  max-width: 684px;
+  padding: 24px 0 64px;
   box-sizing: border-box;
   @media (max-width: 768px) {
     padding:32px 16px 0;
@@ -106,32 +97,35 @@ const ContentWrapper = styled.div`
 
 const ContentBody = styled.div`
   margin-top:1.2em;
-  font-family:Lato;
+  font-family:Roboto;
   font-size: 18px;
   letter-spacing: 1.5;
   line-height: 27px;
-  padding-bottom: 61px;
-  border-bottom: 1px solid #444444;
-  color:#444444;
+  
+  color:#19191D;
   h1 {
     margin:1.7em 0;
-    color:#444444;
+    font-family:Roboto;
+    color:#19191D;
     font-weight: 700;
     font-size:42px;
     line-height:1;
   }
   h2 {
     margin:1.5em 0;
-    color:#444444;
+    font-family:Roboto;
+    color:#19191D;
     font-weight: 700;
   }
   h3 {
     margin: .5em 0 .2em;
-    color:#444444;
+    font-family:Roboto;
+    color:#19191D;
     font-weight: 700;
   }
   p {
     margin:1.5em 0;
+    font-family:Roboto;
     font-size:20px;
     line-height:1.65em;
   }
@@ -202,25 +196,33 @@ const CobuyKicker = styled.h5``
 const CobuyTitle = styled.h3`
   margin-bottom: 1.66667vw;
   font-weight:800;
-  text-align:center;
-  font-size: 51.957px;
-  color:#3899da;
+  text-align:center !important;
+  font-size: 36px;
+  line-height:44px;
+  color:#19191D;
   text-align:left;
+  font-family:Quicksand;
   @media (max-width: 768px) {
     font-size: 32px;
     padding:16px 0;
   }
 `
 const ShareLinks = styled.div`
-  max-width: 842px;
+  max-width: 684px;
   margin:0 auto;
   display:flex;
   flex-direction:row;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:2em;
+  margin-bottom: -64px;
+  position:relative;
+  z-index:1000;
   h4 {
-    color: #3c484e;  
+    color:#19191D;
+    font-size:24px;
+    line-height:32px;
+    font-weight:700;
+    font-family:Quicksand;  
   }
   button {
     outline:none;
@@ -240,18 +242,20 @@ const ShareLinks = styled.div`
 
 const IconsWrapper = styled.div`
   width:100%;
-  max-width:180px;
+  max-width:220px;
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  margin:0 auto;
+
 `
 
 const AuthorInfo = styled.div`
+  width:100%;
+  max-width:250px;
+  margin:48px auto;
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  margin:3.75vw 1vw;
   color:#444444;
 `
 
@@ -259,34 +263,30 @@ const AuthorImageWrapper = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  align-items:flex-start;
-  max-width:320px;  
+  align-items:center;
+  max-width:320px;
+  
 `
 
-const AuthorSocials =styled.div`
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-  align-items:flex-start;
-  width:72px; 
-`
+
 
 const AuthorImage = styled(Img)`
   border-radius:50%;
 `
 
 const AuthorName = styled.span`
+  font-family:Quicksand;
   font-weight:600;
   margin-top:2px;
   font-size:16px;
+  font-weight:700;
+  color:#19191D;
   span {
     font-weight:400;
   }
 `
 
-const CreatedAt = styled.span`
-  margin-top:8px;
-`
+
 
 const PostInfo = styled.div`
   display:flex;

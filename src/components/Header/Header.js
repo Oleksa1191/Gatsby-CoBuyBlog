@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from 'gatsby'
 import NavLinks from './NavLinks'
 
 export const Header = props => {
@@ -89,7 +88,7 @@ export const Header = props => {
 }
 
 const StyledButton = styled.button`
-  background-color:#EBF2FF;
+  background-color:#3899DA;
   border-radius:4px !important;
   border:none;
   outline:none;
@@ -97,11 +96,11 @@ const StyledButton = styled.button`
   transition: all .1s ease-in;
   font-size:14px;
   box-shadow:border-box;
-  color:#2264D1 !important;
+  color:#ffffff !important;
   font-family:Roboto;
   font-weight:500;
   text-transform:uppercase;
-  font-family:Quicksand;
+  font-family:Roboto;
   :hover {
     box-shadow: 0px 4px 8px #C4DAFF;
   }

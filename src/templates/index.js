@@ -6,6 +6,7 @@ import { CardListing } from '../components/BlogListing/CardListing/CardListing'
 import Pagination from '../components/Pagination/Pagination'
 import useLatestsPost from "../hooks/useLatestsPost"
 import LatestPosts from "../components/LatestPosts/LatestPosts"
+import { SpringFadeUp, TrailFadeUp } from "../utils/animation"
 
 const BlogMainPage = props => {
   const currentPage = props.pageContext.currentPage
@@ -20,9 +21,12 @@ const BlogMainPage = props => {
   return (
     <Layout>
       <SEO title='Blog Home page' />
-      {latest_posts}
-      <CardListing cardsData={cardsData} ></CardListing>
-      <Pagination pageContext={props?.pageContext} />
+      <SpringFadeUp>
+        {latest_posts}
+        <CardListing cardsData={cardsData} ></CardListing>
+        <Pagination pageContext={props?.pageContext} />
+      </SpringFadeUp>
+      
     </Layout>
   )
 }

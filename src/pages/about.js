@@ -12,6 +12,7 @@ import Achievements from "../components/AboutComponents/Achievements"
 import WhatWeDo from "../components/AboutComponents/WhatWeDo"
 import WhyWeDoIt from "../components/AboutComponents/WhyWeDoIt"
 import OurValues from "../components/AboutComponents/OurValues"
+import WhyCoBuy from "../components/AboutComponents/WhyCobuy"
 
 const About = (props) => {
   const aboutData = props.data.allContentfulAboutPage.nodes[0]
@@ -56,6 +57,7 @@ const About = (props) => {
           {ourValuesData && (
             <OurValues data={ourValuesData}/>
           )}
+          <WhyCoBuy />
         </WrapperAbout>
       </SpringFadeUp>
      
@@ -123,6 +125,9 @@ const WrapperAbout = styled.div`
   padding-top:32px;
   max-width:684px;
   margin:0 auto 32px;
+  @media (max-width:768px) {
+    padding:32px 16px;
+  }
   
 `
 

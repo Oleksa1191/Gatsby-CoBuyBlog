@@ -43,9 +43,14 @@ const WrapperComponent = styled.div`
         flex-direction:column;
         max-height:200px;
         flex-wrap:wrap;
-        margin:24px 0 !important;
+        margin:24px 32px !important;
+        list-style-image:url(/check-small.png);
         li {
-            padding:12px 0;
+            padding:12px 0 12px 24px;
+            
+        }
+        @media (max-width:768px) {
+            max-height:400px;
         }
     }
 `

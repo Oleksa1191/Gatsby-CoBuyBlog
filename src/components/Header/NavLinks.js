@@ -55,7 +55,9 @@ const LinkHeader = styled.span`
   font-weight:500;
   :hover {
     color:#3899da;
-    
+  }
+  @media (max-width: 576px) {
+    line-height:16px;
   }
   
 `

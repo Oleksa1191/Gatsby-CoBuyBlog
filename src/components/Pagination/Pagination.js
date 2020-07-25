@@ -173,7 +173,6 @@ export const PaginationList = styled.ul`
   padding-left:0 !important;
   @media (max-width: 576px) {
     height: 36px;
-    
   }
 `
 export const PaginationSeparator = styled.li`

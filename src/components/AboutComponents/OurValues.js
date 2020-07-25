@@ -30,7 +30,7 @@ const OurValues = ({
                             </ValueItem>
                         
                         )
-            })}
+        })}
         </BodyComponent>
     </WrapperComponent>
     
@@ -109,6 +109,9 @@ const ValueItem = styled.div`
     div {
         max-width:32px;
         margin:0 auto;
+    }
+    @media (max-width:768px) {
+        padding:24px 16px;
     }
 `
 

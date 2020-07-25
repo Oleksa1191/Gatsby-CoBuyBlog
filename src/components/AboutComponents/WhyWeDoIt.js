@@ -1,7 +1,7 @@
 import React  from "react"
 import styled from "styled-components"
 
-
+import CoBuyIcons from "../Icons/CoBuyIcons"
 /*
  About Why We Do It Section
 */
@@ -39,13 +39,20 @@ const WrapperComponent = styled.div`
         color: #19191D;
     }
     li {
-        padding:12px 0;
+        padding:12px 0 12px 24px;
+
+    }
+    ol {
+        li {
+            list-style:none;
+        }
     }
     ul {
         display:flex;
         flex-direction:column;
         flex-wrap:wrap;
-        margin:24px 0 !important;
+        margin:24px 0 24px 48px !important;
+        list-style-image:url(/check.png);
         
     }
     

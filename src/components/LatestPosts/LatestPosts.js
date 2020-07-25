@@ -117,4 +117,7 @@ const CardTitle = styled.h3`
     text-align:left;
     height:140px;
     font-weight:700;
+    @media (max-width:414px) {
+      padding:16px;
+    }
 `

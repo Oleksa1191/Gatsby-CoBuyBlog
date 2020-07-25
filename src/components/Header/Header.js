@@ -256,14 +256,11 @@ const Navbox = styled.div`
     top: 8vh;
     left: ${props => (props.open ? "-100%" : "0")};
     a {
-      
       @media (max-width: 768px) {
-        padding: 20px 0;
+        padding: 12px 0;
         font-size: 1.5rem;
         z-index: 6;
-        
       }
-      
     }
     
   }

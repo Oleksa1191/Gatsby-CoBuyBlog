@@ -109,7 +109,7 @@ const CardImage = styled.figure`
     position: relative;
     transition: all 0.3s;
     margin-bottom:1em;
-    height:200px;
+    height:auto;
     div {
       height:200px;
     }
@@ -130,7 +130,8 @@ const CardImage = styled.figure`
 
 const BodyCard = styled.div`
     padding:0 16px;
-    height:500px;
+    height:auto;
+    min-height:500px;
 `
 
 const FooterCard = styled.div`

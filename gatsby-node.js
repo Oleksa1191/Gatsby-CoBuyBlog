@@ -25,7 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
         reject(result.errors)
       }
       const blogListingData = result.data.allContentfulBlogPost.edges
-      const blogCardsPerPage = 6
+      const blogCardsPerPage = 8
       const numPages = Math.ceil(blogListingData.length / blogCardsPerPage)
         
       Array.from({ length: numPages }).forEach((_, i) => {

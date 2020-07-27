@@ -88,7 +88,7 @@ const Pagination = ({ pageContext }) => {
                 {!isFirst && (
                     <Link to={prevPage}>
                       <span>
-                        &lt;
+                        <img className="rotate-previous" src="/next-image.png" />
                       </span>
                     </Link>
                 )}  
@@ -114,7 +114,7 @@ const Pagination = ({ pageContext }) => {
                 {!isLast && (
                     <Link to={nextPage} rel="next">
                       <span>
-                        &gt;
+                        <img src="/next-image.png" />
                       </span>
                             
                     </Link>
@@ -163,6 +163,12 @@ const ButtonNav = styled(Link)`
     a {
         color:#2264D1;
         
+    }
+    span {
+      font-family:Roboto !important;
+    }
+    .rotate-previous {
+      transform:rotate(180deg)
     }
 `
 
@@ -216,12 +222,18 @@ export const PaginationItem = styled(Link)`
     height: 36px;
     margin:0 4px;
   }
-
+  span {
+    font-family:Roboto !important;
+    font-weight:700;
+  }
   
   a {
     color: #2264D1;
     text-decoration: none;
     box-shadow: none;
+    font-family:Roboto !important;
+    font-weight:700;
+ 
   }
   ${({ current }) =>
     current &&

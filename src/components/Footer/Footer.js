@@ -155,7 +155,7 @@ const TextFooter = styled.li`
   color:#ffffff;
   font-weight:400;
   opacity:0.95;
-  margin-bottom:24px !important;
+  margin-bottom:8px !important;
   a {
     font-size:14px;
   }

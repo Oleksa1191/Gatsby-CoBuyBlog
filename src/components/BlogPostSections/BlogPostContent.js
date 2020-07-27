@@ -116,12 +116,20 @@ const ContentBody = styled.div`
     font-family:Roboto;
     color:#19191D;
     font-weight: 700;
+    font-size: 36px;
   }
   h3 {
     margin: .5em 0 .2em;
     font-family:Roboto;
     color:#19191D;
     font-weight: 700;
+    font-size: 32px;
+  }
+  h4 {
+    font-family:Roboto;
+    color:#19191D;
+    font-weight: 700;
+    font-size: 28px;
   }
   p {
     margin:1.5em 0;

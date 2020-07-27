@@ -50,7 +50,7 @@ const WrapperComponent = styled.div`
             
         }
         @media (max-width:768px) {
-            max-height:400px;
+            max-height:460px;
         }
     }
 `

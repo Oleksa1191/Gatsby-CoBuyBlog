@@ -30,7 +30,7 @@ const NavbarLinks = () => {
       <Link to="/refer-a-friend" className="mr-3" activeClassName="active">
         <div>
             <LinkHeader>
-                Refer a friend
+                Refer a Friend
             </LinkHeader>
         </div>
       </Link>

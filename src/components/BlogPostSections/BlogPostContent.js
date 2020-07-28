@@ -136,6 +136,9 @@ const ContentBody = styled.div`
     font-family:Roboto;
     font-size:20px;
     line-height:1.65em;
+    strong {
+      font-weight:700 !important;
+    }
   }
   a {
     color: #3899da;
